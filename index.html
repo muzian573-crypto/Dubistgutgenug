@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Du bist gut genug</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <h1>Du bist gut genug <span class="emoji">✨</span></h1>
+      <p class="tagline">Baue gute Gewohnheiten – Schritt für Schritt.</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Routine erstellen -->
+    <section class="card" id="create-section">
+      <h2>Neue Routine erstellen</h2>
+      <form id="routine-form" novalidate>
+
+        <div class="field">
+          <label for="routine-name">Name <span class="required">*</span></label>
+          <input type="text" id="routine-name" placeholder="z. B. Jeden Tag lesen" maxlength="80" />
+          <span class="error-msg" id="name-error">Bitte gib einen Namen ein.</span>
+        </div>
+
+        <div class="field">
+          <label for="routine-desc">Beschreibung (optional)</label>
+          <textarea id="routine-desc" placeholder="Worum geht es bei dieser Routine?" rows="3" maxlength="300"></textarea>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="routine-freq">Häufigkeit</label>
+            <select id="routine-freq">
+              <option value="daily">Täglich</option>
+              <option value="weekly">Wöchentlich</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="routine-end">Enddatum (optional)</label>
+            <input type="date" id="routine-end" />
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary">Routine starten</button>
+      </form>
+    </section>
+
+    <!-- Routinen-Übersicht -->
+    <section class="card" id="overview-section">
+      <div class="overview-header">
+        <h2>Meine Routinen</h2>
+        <span class="badge" id="routine-count">0</span>
+      </div>
+      <div id="routine-list">
+        <p class="empty-state">Du hast noch keine Routinen. Leg eine an!</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal: Routine löschen bestätigen -->
+  <div id="confirm-modal" class="modal-overlay" hidden>
+    <div class="modal">
+      <p>Möchtest du diese Routine wirklich löschen?</p>
+      <div class="modal-actions">
+        <button id="confirm-delete" class="btn-danger">Löschen</button>
+        <button id="cancel-delete" class="btn-secondary">Abbrechen</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Du schaffst das. Jeden Tag ein bisschen mehr. 💪</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
